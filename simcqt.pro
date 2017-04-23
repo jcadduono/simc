@@ -176,6 +176,9 @@ CONFIG(openssl) {
   win32 {
     LIBS += -lssleay32
   }
+  unix {
+    LIBS += -lssl -lcrypto
+  }
 }
 
 CONFIG(to_install) {
