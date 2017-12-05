@@ -226,15 +226,15 @@ ifneq (${PREFIX},..)
 endif
 
 $(MODULE): $(SRC_OBJ)
-	-@echo [$(MODULE)] Linking $@
-	@$(CXX) $(OPTS) $(LINK_FLAGS) $^ $(LINK_LIBS) -o $@
+	@echo [$(MODULE)] Linking $@
+	$(CXX) $(OPTS) $(LINK_FLAGS) $^ $(LINK_LIBS) -o $@
 
 $(OBJ_DIR)$(PATHSEP)%.$(OBJ_EXT): %.cpp $(SRC_H)
-	-@echo [$(MODULE)] Compiling $(notdir $<)
-	@$(CXX) $(CPP_FLAGS) $(OPTS) -c $< -o $@
+	@echo [$(MODULE)] Compiling $(notdir $<)
+	$(CXX) $(CPP_FLAGS) $(OPTS) -c $< -o $@
 
 %.s: %.cpp $(SRC_H)
-	-@echo [$(MODULE)] Compiling $(notdir $<)
+	@echo [$(MODULE)] Compiling $(notdir $<)
 	$(CXX) $(CPP_FLAGS) $(OPTS) -S $< -o $@
 
 # Force regeneration of git_info.o on every recompilation to potntially get the
